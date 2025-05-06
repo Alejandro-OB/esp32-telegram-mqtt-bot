@@ -4,8 +4,10 @@ from telegram.ext import Updater, CommandHandler
 
 # Token y configuración MQTT desde variables de entorno
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-MQTT_BROKER = os.environ.get("MQTT_BROKER", "broker.hivemq.com")
-MQTT_PORT = int(os.environ.get("MQTT_PORT", 1883))
+MQTT_BROKER = os.environ.get("MQTT_BROKER")
+MQTT_PORT = int(os.environ.get("MQTT_PORT", 8883))
+MQTT_USERNAME = os.environ.get("MQTT_USERNAME")
+MQTT_PASSWORD = os.environ.get("MQTT_PASSWORD")
 
 # Mapa de comandos de Telegram a tópicos MQTT
 COMANDOS_MQTT = {
@@ -20,7 +22,14 @@ COMANDOS_MQTT = {
 }
 
 def publicar_mqtt(topic):
-    publish.single(topic, payload="true", hostname=MQTT_BROKER, port=MQTT_PORT)
+    publish.single(
+        topic,
+        payload="true",
+        hostname=MQTT_BROKER,
+        port=MQTT_PORT,
+        auth={"username": MQTT_USERNAME, "password": MQTT_PASSWORD},
+        tls={}  # Requiere TLS para HiveMQ Cloud
+    )
 
 def manejador(update, context):
     comando = update.message.text[1:]
