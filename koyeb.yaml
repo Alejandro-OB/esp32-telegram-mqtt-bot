@@ -4,7 +4,8 @@ region: washington
 instance_type: nano
 git:
   branch: main
-  run_command: python main.py
+  build_command: ""
+  run_command: "python main.py"
 env:
   - key: BOT_TOKEN
     value: 7977748615:AAGyniD4kL_C_a2iaGp1CmTJZdabMmjGkwE
