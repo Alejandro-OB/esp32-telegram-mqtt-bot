@@ -31,7 +31,7 @@ RESPUESTAS_TOPICOS = {
     "mqtt/respuesta/estado_esp32": "Estado del ESP32",
     "mqtt/respuesta/reiniciar_esp32": "Confirmación de reinicio",
     "mqtt/respuesta/apagar": "Apagado del PC",
-    "mqtt/respuesta/reiniciar": "Reinicio del PC",
+    "mqtt/respuesta/reiniciar_pc": "Reinicio del PC",
     "mqtt/respuesta/esp32_reinicio_detectado": "Inicio del ESP32",
     "mqtt/respuesta/ota_estado": "Estado del servidor OTA",
     "mqtt/respuesta/reconexion_wifi": "Reconexión WiFi",
