@@ -17,7 +17,7 @@ CHAT_ID_AUTORIZADO = os.environ.get("CHAT_ID_AUTORIZADO")
 COMANDOS_MQTT = {
     "encender_pc": "mqtt/pc/encender",
     "apagar_pc": "mqtt/pc/apagar",
-    "reiniciar_pc": "mqtt/pc/reiniciar",
+    "reiniciar_pc": "mqtt/pc/reiniciar_pc",
     "verificar_pc": "mqtt/pc/verificar",
     "estado_esp32": "mqtt/pc/estado_esp32",
     "reiniciar_esp32": "mqtt/pc/reiniciar_esp32",
