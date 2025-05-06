@@ -1,29 +1,37 @@
 name: esp32-telegram-mqtt-bot
-type: worker
-region: washington
-instance_type: nano
-git:
-  branch: main
-  build_command: ""
-  run_command: "python main.py"
-env:
-  - key: BOT_TOKEN
-    value: 7977748615:AAGyniD4kL_C_a2iaGp1CmTJZdabMmjGkwE
-  - key: CHAT_ID_AUTORIZADO
-    value: "1176658539"
-  - key: IP_PC
-    value: 192.168.18.151
-  - key: MQTT_BROKER
-    value: 994be6fec90e4f359c46ca50e1dec5f6.s1.eu.hivemq.cloud
-  - key: MQTT_PASSWORD
-    value: Ort.hive.10.@
-  - key: MQTT_PORT
-    value: "8883"
-  - key: MQTT_USERNAME
-    value: esp32_user
-  - key: PUERTO_FLASK
-    value: "9123"
-  - key: TOKEN_FLASK
-    value: miclave123
-  - key: URL_OTA
-    value: http://192.168.18.252:8266
+services:
+  - name: app
+    type: worker
+    regions: [was]
+    instance_type: nano
+    env:
+      - name: BOT_TOKEN
+        value: "7977748615:AAGyniD4kL_C_a2iaGp1CmTJZdabMmjGkwE"
+      - name: CHAT_ID_AUTORIZADO
+        value: "1176658539"
+      - name: IP_PC
+        value: "192.168.18.151"
+      - name: MQTT_BROKER
+        value: "994be6fec90e4f359c46ca50e1dec5f6.s1.eu.hivemq.cloud"
+      - name: MQTT_PASSWORD
+        value: "Ort.hive.10.@"
+      - name: MQTT_PORT
+        value: "8883"
+      - name: MQTT_USERNAME
+        value: "esp32_user"
+      - name: PUERTO_FLASK
+        value: "9123"
+      - name: TOKEN_FLASK
+        value: "miclave123"
+      - name: URL_OTA
+        value: "http://192.168.18.252:8266"
+    ports:
+      - port: 9123
+        http_path: "/"
+    docker:
+      build:
+        git:
+          repository: Alejandro-OB/esp32-telegram-mqtt-bot
+          branch: main
+      run:
+        command: ["python", "main.py"]
