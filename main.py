@@ -51,7 +51,7 @@ def on_message(client, userdata, msg):
     if topico in RESPUESTAS_TOPICOS:
         if CHAT_ID_AUTORIZADO:
             texto = f"*{RESPUESTAS_TOPICOS[topico]}:*\n\n```\n{contenido}\n```"
-            bot.send_message(chat_id=CHAT_ID_AUTORIZADO, text=texto, parse_mode='Markdown')
+            bot.send_message(chat_id=CHAT_ID_AUTORIZADO, text=texto, parse_mode='MarkdownV2')
         ultima_respuesta[topico] = contenido
 
 # Inicializar cliente MQTT para escuchar respuestas
