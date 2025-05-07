@@ -22,8 +22,7 @@ COMANDOS_MQTT = {
     "estado_esp32": "mqtt/pc/estado_esp32",
     "reiniciar_esp32": "mqtt/pc/reiniciar_esp32",
     "actualizar_ota": "mqtt/pc/actualizar_ota",
-    "ayuda": "mqtt/pc/ayuda",
-    "mqtt/respuesta/error": "Error en el comando"
+    "ayuda": "mqtt/pc/ayuda"
 }
 
 # Diccionario de respuestas recibidas por MQTT
