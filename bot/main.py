@@ -22,7 +22,8 @@ COMANDOS_MQTT = {
     "estado_esp32": "mqtt/pc/estado_esp32",
     "reiniciar_esp32": "mqtt/pc/reiniciar_esp32",
     "actualizar_ota": "mqtt/pc/actualizar_ota",
-    "ayuda": "mqtt/pc/ayuda"
+    "ayuda": "mqtt/pc/ayuda",
+    "mqtt/respuesta/error": "Error en el comando"
 }
 
 # Diccionario de respuestas recibidas por MQTT
@@ -35,6 +36,7 @@ RESPUESTAS_TOPICOS = {
     "mqtt/respuesta/esp32_reinicio_detectado": "Inicio del ESP32",
     "mqtt/respuesta/ota_estado": "Estado del servidor OTA",
     "mqtt/respuesta/reconexion_wifi": "Conexión WiFi",
+    "mqtt/respuesta/error": "Error en el comando",
     "mqtt/respuesta/ayuda": "Menú de ayuda"
 }
 
