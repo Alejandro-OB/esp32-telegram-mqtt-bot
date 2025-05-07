@@ -153,4 +153,4 @@ Estos endpoints son accesibles vía navegador, ESP32 u otros sistemas:
 
 ## Licencia y autor
 
-Este proyecto fue desarrollado por [Tu Nombre o Alias]. Puedes modificarlo y adaptarlo según tus necesidades.
+Este proyecto fue desarrollado por Alejandro-OB. Puedes modificarlo y adaptarlo según tus necesidades.
