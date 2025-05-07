@@ -86,6 +86,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
   else if (String(topic) == "mqtt/pc/ayuda" && mensaje == "true") {
     mostrarAyuda();
   }
+  else {
+    // Mensaje para comandos erróneos
+    String mensajeError = "❌ Comando desconocido: " + String(topic) + ". Por favor, revisa el menú de ayuda.";
+    mqttClient.publish("mqtt/respuesta/error", mensajeError.c_str());
+    mostrarAyuda();
+    Serial.println(mensajeError);
+  }
 
 }
 
