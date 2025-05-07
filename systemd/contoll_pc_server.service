@@ -1,0 +1,12 @@
+[Unit]
+Description=Servidor Flask para apagar el PC desde ESP32
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 TU/RUTA/COMPLETA/pc_contoller_server.py
+WorkingDirectory=TU/RUTA/COMPLETA/
+User=your_user
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

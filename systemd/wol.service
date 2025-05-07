@@ -1,0 +1,9 @@
+[Unit]
+Description=Enable Wake-on-LAN para enp42s0
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/ethtool -s enp42s0 wol g
+
+[Install]
+WantedBy=multi-user.target
