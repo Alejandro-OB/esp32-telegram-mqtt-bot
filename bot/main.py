@@ -83,12 +83,12 @@ def manejador(update, context):
     comando = update.message.text[1:]
     global CHAT_ID_AUTORIZADO
     CHAT_ID_AUTORIZADO = str(update.message.chat_id)
-
+    print(f"Comando recibido: {comando}")
     if comando == "actualizar_ota":
         update.message.reply_text(f"🔄 Puedes actualizar el ESP32 aquí: {OTA_URL}")
     elif comando in COMANDOS_MQTT:
         publicar_mqtt(COMANDOS_MQTT[comando])
-        update.message.reply_text(f"✅ Comando `{comando}` enviado por MQTT", parse_mode="Markdown")
+        update.message.reply_text(f"✅ Comando `{comando}` recibido", parse_mode="Markdown")
     else:
         update.message.reply_text("❌ Comando no reconocido.")
 
