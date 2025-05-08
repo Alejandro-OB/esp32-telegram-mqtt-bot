@@ -2,6 +2,7 @@ import os
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 from telegram.ext import Updater, CommandHandler
+from telegram.ext import MessageHandler, Filters
 
 # Configuración desde variables de entorno
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -90,6 +91,7 @@ def manejador(update, context):
         publicar_mqtt(COMANDOS_MQTT[comando])
         update.message.reply_text(f"✅ Comando `{comando}` recibido", parse_mode="Markdown")
     else:
+        print(f"Comando no reconocido: {comando}")
         update.message.reply_text("❌ Comando no reconocido.")
 
 def main():
@@ -105,6 +107,9 @@ def main():
 
     for comando in COMANDOS_MQTT:
         dispatcher.add_handler(CommandHandler(comando, manejador))
+    
+    dispatcher.add_handler(MessageHandler(Filters.command, manejador))
+
 
     iniciar_mqtt()
     updater.start_polling()
