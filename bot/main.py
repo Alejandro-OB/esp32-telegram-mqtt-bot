@@ -81,9 +81,9 @@ def publicar_mqtt(topic):
 # Manejar comandos de Telegram
 def manejador(update, context):
     comando = update.message.text[1:]
+    print(f"Comando recibido: {comando}")
     global CHAT_ID_AUTORIZADO
     CHAT_ID_AUTORIZADO = str(update.message.chat_id)
-    print(f"Comando recibido: {comando}")
     if comando == "actualizar_ota":
         update.message.reply_text(f"🔄 Puedes actualizar el ESP32 aquí: {OTA_URL}")
     elif comando in COMANDOS_MQTT:
