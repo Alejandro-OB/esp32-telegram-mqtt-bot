@@ -190,6 +190,7 @@ void iniciarServidorOTA() {
   publicarMQTT("mqtt/respuesta/ota_estado", "✅ Servidor OTA activo en puerto 8266");
 }
 
+
 void verificarPC() {
   bool encendido = Ping.ping(ipPC);
   String estado = encendido ? "✅ PC ENCENDIDO" : "❌ PC APAGADO";
